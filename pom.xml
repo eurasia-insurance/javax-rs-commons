@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.lapsa.maven.pom</groupId>
-		<artifactId>javaee7-app-parent</artifactId>
+		<groupId>tech.lapsa.maven</groupId>
+		<artifactId>maven-general</artifactId>
 		<version>3.0-SNAPSHOT</version>
 	</parent>
 
@@ -13,7 +13,25 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Lapsa : REST commons</name>
+	<name>Java EE Lib : REST commons</name>
+
+	<properties>
+		<!-- BOMS -->
+		<javax-javaee-bom.version>7.0-SNAPSHOT</javax-javaee-bom.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- BOMS -->
+			<dependency>
+				<groupId>tech.lapsa.javax</groupId>
+				<artifactId>javax-javaee-bom</artifactId>
+				<version>${javax-javaee-bom.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<!-- Java EE -->
