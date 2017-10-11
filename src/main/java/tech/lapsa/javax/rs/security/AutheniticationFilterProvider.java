@@ -1,4 +1,4 @@
-package com.lapsa.rs.authorization;
+package tech.lapsa.javax.rs.security;
 
 import java.io.IOException;
 import java.security.Principal;
