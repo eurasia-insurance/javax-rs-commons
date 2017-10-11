@@ -1,4 +1,4 @@
-package tech.lapsa.rs.security;
+package tech.lapsa.javax.rs.security;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;

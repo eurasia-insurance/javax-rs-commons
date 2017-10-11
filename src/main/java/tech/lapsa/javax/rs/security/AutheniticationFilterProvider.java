@@ -1,4 +1,4 @@
-package tech.lapsa.rs.security;
+package tech.lapsa.javax.rs.security;
 
 import java.io.IOException;
 import java.security.Principal;
