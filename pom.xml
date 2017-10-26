@@ -17,12 +17,20 @@
 
 	<properties>
 		<!-- BOMS -->
+		<java-commons.version>1.0-SNAPSHOT</java-commons.version>
 		<javax-javaee-bom.version>7.0-SNAPSHOT</javax-javaee-bom.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<!-- BOMS -->
+			<dependency>
+				<groupId>tech.lapsa.java</groupId>
+				<artifactId>java-commons-root</artifactId>
+				<version>${java-commons.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>tech.lapsa.javax</groupId>
 				<artifactId>javax-javaee-bom</artifactId>
@@ -34,6 +42,13 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- tech -->
+		<dependency>
+			<groupId>tech.lapsa.java</groupId>
+			<artifactId>java-commons</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
 		<!-- Java EE -->
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
