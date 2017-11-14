@@ -20,6 +20,10 @@ public final class RESTUtils {
 
     //
 
+    public static final Response responseServerError(String message) {
+	return response(Status.INTERNAL_SERVER_ERROR, message);
+    }
+
     public static final Response responseServerError(InternalServerErrorException e) {
 	return response(Status.INTERNAL_SERVER_ERROR, e.getMessage());
     }
@@ -39,6 +43,10 @@ public final class RESTUtils {
     }
 
     //
+
+    public static final Response responseBadRequest(String message) {
+	return response(Status.BAD_REQUEST, message);
+    }
 
     public static final Response responseBadRequest(WrongArgumentException e) {
 	return response(Status.BAD_REQUEST, e.getMessage());
