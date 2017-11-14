@@ -20,7 +20,7 @@ public final class RESTUtils {
 
     //
 
-    public static final Response responseInternalServerError(InternalServerErrorException e) {
+    public static final Response responseServerError(InternalServerErrorException e) {
 	return response(Status.INTERNAL_SERVER_ERROR, e.getMessage());
     }
 
