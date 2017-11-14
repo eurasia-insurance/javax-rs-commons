@@ -20,12 +20,12 @@ public final class RESTUtils {
 
     //
 
-    public static final Response responseServerError(Object entity) {
-	return response(Status.INTERNAL_SERVER_ERROR, entity);
+    public static final Response responseInternalServerError(InternalServerErrorException e) {
+	return response(Status.INTERNAL_SERVER_ERROR, e.getMessage());
     }
 
-    public static final Response responseServerError(Object entity, Locale locale) {
-	return response(Status.INTERNAL_SERVER_ERROR, locale, entity);
+    public static final Response responseInternalServerError(InternalServerErrorException e, Locale locale) {
+	return response(Status.INTERNAL_SERVER_ERROR, locale, e.getMessage());
     }
 
     //
@@ -40,12 +40,12 @@ public final class RESTUtils {
 
     //
 
-    public static final Response responseBadRequest(Object entity) {
-	return response(Status.BAD_REQUEST, entity);
+    public static final Response responseBadRequest(WrongArgumentException e) {
+	return response(Status.BAD_REQUEST, e.getMessage());
     }
 
-    public static final Response responseBadRequest(Object entity, Locale locale) {
-	return response(Status.BAD_REQUEST, locale, entity);
+    public static final Response responseWrongArgument(WrongArgumentException e, Locale locale) {
+	return response(Status.BAD_REQUEST, locale, e.getMessage());
     }
 
     //
