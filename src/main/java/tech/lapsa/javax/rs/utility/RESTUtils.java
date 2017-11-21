@@ -3,6 +3,7 @@ package tech.lapsa.javax.rs.utility;
 import java.util.Locale;
 
 import javax.ws.rs.core.CacheControl;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -21,15 +22,15 @@ public final class RESTUtils {
     //
 
     public static final Response responseServerError(String message) {
-	return response(Status.INTERNAL_SERVER_ERROR, message);
+	return response(Status.INTERNAL_SERVER_ERROR, MediaType.TEXT_PLAIN_TYPE, message);
     }
 
     public static final Response responseServerError(InternalServerErrorException e) {
-	return response(Status.INTERNAL_SERVER_ERROR, e.getMessage());
+	return response(Status.INTERNAL_SERVER_ERROR, MediaType.TEXT_PLAIN_TYPE, e.getMessage());
     }
 
     public static final Response responseInternalServerError(InternalServerErrorException e, Locale locale) {
-	return response(Status.INTERNAL_SERVER_ERROR, locale, e.getMessage());
+	return response(Status.INTERNAL_SERVER_ERROR, locale, MediaType.TEXT_PLAIN_TYPE, e.getMessage());
     }
 
     //
@@ -45,15 +46,15 @@ public final class RESTUtils {
     //
 
     public static final Response responseBadRequest(String message) {
-	return response(Status.BAD_REQUEST, message);
+	return response(Status.BAD_REQUEST, MediaType.TEXT_PLAIN_TYPE, message);
     }
 
     public static final Response responseBadRequest(WrongArgumentException e) {
-	return response(Status.BAD_REQUEST, e.getMessage());
+	return response(Status.BAD_REQUEST, MediaType.TEXT_PLAIN_TYPE, e.getMessage());
     }
 
     public static final Response responseWrongArgument(WrongArgumentException e, Locale locale) {
-	return response(Status.BAD_REQUEST, locale, e.getMessage());
+	return response(Status.BAD_REQUEST, locale, MediaType.TEXT_PLAIN_TYPE, e.getMessage());
     }
 
     //
@@ -72,13 +73,28 @@ public final class RESTUtils {
 	return response(status, Locale.getDefault(), entity);
     }
 
+    public static final Response response(Status status, MediaType type, Object entity) {
+	return response(status, Locale.getDefault(), type, entity);
+    }
+
     public static final Response response(Status status, Locale locale, Object entity) {
 	return Response
-		.status(status)
-		.cacheControl(RESTUtils.CACHE_CONTROL_NO_CACHE)
-		.entity(entity)
-		.language(locale)
-		.encoding(DEFAULT_ENCODING)
+		.status(status) //
+		.cacheControl(RESTUtils.CACHE_CONTROL_NO_CACHE) //
+		.entity(entity) //
+		.language(locale) //
+		.encoding(DEFAULT_ENCODING) //
+		.build();
+    }
+
+    public static final Response response(Status status, Locale locale, MediaType type, Object entity) {
+	return Response
+		.status(status) //
+		.cacheControl(RESTUtils.CACHE_CONTROL_NO_CACHE) //
+		.entity(entity) //
+		.type(type) //
+		.language(locale) //
+		.encoding(DEFAULT_ENCODING) //
 		.build();
     }
 
