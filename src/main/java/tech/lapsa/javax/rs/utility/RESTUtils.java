@@ -39,8 +39,16 @@ public final class RESTUtils {
 	return response(Status.NOT_FOUND, entity);
     }
 
+    public static final Response responseNotFound(MediaType type, Object entity) {
+	return response(Status.NOT_FOUND, type, entity);
+    }
+
     public static final Response responseNotFound(Object entity, Locale locale) {
 	return response(Status.NOT_FOUND, locale, entity);
+    }
+
+    public static final Response responseNotFound(MediaType type, Object entity, Locale locale) {
+	return response(Status.NOT_FOUND, locale, type, entity);
     }
 
     //
@@ -63,8 +71,16 @@ public final class RESTUtils {
 	return response(Status.OK, entity);
     }
 
+    public static final Response responseOk(MediaType type, Object entity) {
+	return response(Status.OK, type, entity);
+    }
+
     public static final Response responseOk(Object entity, Locale locale) {
 	return response(Status.OK, locale, entity);
+    }
+
+    public static final Response responseOk(MediaType type, Object entity, Locale locale) {
+	return response(Status.OK, locale, type, entity);
     }
 
     //
