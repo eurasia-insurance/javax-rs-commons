@@ -8,20 +8,20 @@ public class WrongArgumentException extends Exception {
 	super();
     }
 
-    public WrongArgumentException(String message, Throwable cause, boolean enableSuppression,
-	    boolean writableStackTrace) {
+    public WrongArgumentException(final String message, final Throwable cause, final boolean enableSuppression,
+	    final boolean writableStackTrace) {
 	super(message, cause, enableSuppression, writableStackTrace);
     }
 
-    public WrongArgumentException(String message, Throwable cause) {
+    public WrongArgumentException(final String message, final Throwable cause) {
 	super(message, cause);
     }
 
-    public WrongArgumentException(String message) {
+    public WrongArgumentException(final String message) {
 	super(message);
     }
 
-    public WrongArgumentException(Throwable cause) {
+    public WrongArgumentException(final Throwable cause) {
 	super(cause);
     }
 }

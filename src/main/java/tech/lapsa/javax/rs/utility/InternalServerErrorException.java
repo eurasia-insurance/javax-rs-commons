@@ -8,19 +8,20 @@ public class InternalServerErrorException extends Exception {
 	super();
     }
 
-    public InternalServerErrorException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public InternalServerErrorException(final String message, final Throwable cause, final boolean enableSuppression,
+	    final boolean writableStackTrace) {
 	super(message, cause, enableSuppression, writableStackTrace);
     }
 
-    public InternalServerErrorException(String message, Throwable cause) {
+    public InternalServerErrorException(final String message, final Throwable cause) {
 	super(message, cause);
     }
 
-    public InternalServerErrorException(String message) {
+    public InternalServerErrorException(final String message) {
 	super(message);
     }
 
-    public InternalServerErrorException(Throwable cause) {
+    public InternalServerErrorException(final Throwable cause) {
 	super(cause);
     }
 }

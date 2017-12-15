@@ -21,14 +21,15 @@ public class ApplicationParamConverterProvider implements ParamConverterProvider
     private static final Map<Class<?>, ParamConverter<?>> REGISTERED_CONVERTERS = MyMaps.ofEntries( //
 	    StreamSupport.stream(Spliterators.spliteratorUnknownSize( //
 		    ServiceLoader.load(MyParamConverterProvider.class) //
-		    .iterator(),
+			    .iterator(),
 		    Spliterator.ORDERED), false) //
 		    .map(MyParamConverterProvider::entry) //
 		    .toArray(Map.Entry[]::new));
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T> ParamConverter<T> getConverter(Class<T> rawType, Type genericType, Annotation[] annotations) {
+    public <T> ParamConverter<T> getConverter(final Class<T> rawType, final Type genericType,
+	    final Annotation[] annotations) {
 	return (ParamConverter<T>) REGISTERED_CONVERTERS.keySet() //
 		.stream() //
 		.filter(x -> x.equals(rawType)) //

@@ -20,7 +20,7 @@ public class AutheniticationFilterProvider implements ContainerRequestFilter {
     private Event<Principal> event;
 
     @Override
-    public void filter(ContainerRequestContext requestContext) throws IOException {
+    public void filter(final ContainerRequestContext requestContext) throws IOException {
 	if (requestContext.getSecurityContext() == null)
 	    return;
 	if (requestContext.getSecurityContext().getUserPrincipal() == null)

@@ -21,79 +21,80 @@ public final class RESTUtils {
 
     //
 
-    public static final Response responseServerError(String message) {
+    public static final Response responseServerError(final String message) {
 	return response(Status.INTERNAL_SERVER_ERROR, MediaType.TEXT_PLAIN_TYPE, message);
     }
 
-    public static final Response responseServerError(InternalServerErrorException e) {
+    public static final Response responseServerError(final InternalServerErrorException e) {
 	return response(Status.INTERNAL_SERVER_ERROR, MediaType.TEXT_PLAIN_TYPE, e.getMessage());
     }
 
-    public static final Response responseInternalServerError(InternalServerErrorException e, Locale locale) {
+    public static final Response responseInternalServerError(final InternalServerErrorException e,
+	    final Locale locale) {
 	return response(Status.INTERNAL_SERVER_ERROR, locale, MediaType.TEXT_PLAIN_TYPE, e.getMessage());
     }
 
     //
 
-    public static final Response responseNotFound(Object entity) {
+    public static final Response responseNotFound(final Object entity) {
 	return response(Status.NOT_FOUND, entity);
     }
 
-    public static final Response responseNotFound(MediaType type, Object entity) {
+    public static final Response responseNotFound(final MediaType type, final Object entity) {
 	return response(Status.NOT_FOUND, type, entity);
     }
 
-    public static final Response responseNotFound(Object entity, Locale locale) {
+    public static final Response responseNotFound(final Object entity, final Locale locale) {
 	return response(Status.NOT_FOUND, locale, entity);
     }
 
-    public static final Response responseNotFound(MediaType type, Object entity, Locale locale) {
+    public static final Response responseNotFound(final MediaType type, final Object entity, final Locale locale) {
 	return response(Status.NOT_FOUND, locale, type, entity);
     }
 
     //
 
-    public static final Response responseBadRequest(String message) {
+    public static final Response responseBadRequest(final String message) {
 	return response(Status.BAD_REQUEST, MediaType.TEXT_PLAIN_TYPE, message);
     }
 
-    public static final Response responseBadRequest(WrongArgumentException e) {
+    public static final Response responseBadRequest(final WrongArgumentException e) {
 	return response(Status.BAD_REQUEST, MediaType.TEXT_PLAIN_TYPE, e.getMessage());
     }
 
-    public static final Response responseWrongArgument(WrongArgumentException e, Locale locale) {
+    public static final Response responseWrongArgument(final WrongArgumentException e, final Locale locale) {
 	return response(Status.BAD_REQUEST, locale, MediaType.TEXT_PLAIN_TYPE, e.getMessage());
     }
 
     //
 
-    public static final Response responseOk(Object entity) {
+    public static final Response responseOk(final Object entity) {
 	return response(Status.OK, entity);
     }
 
-    public static final Response responseOk(MediaType type, Object entity) {
+    public static final Response responseOk(final MediaType type, final Object entity) {
 	return response(Status.OK, type, entity);
     }
 
-    public static final Response responseOk(Object entity, Locale locale) {
+    public static final Response responseOk(final Object entity, final Locale locale) {
 	return response(Status.OK, locale, entity);
     }
 
-    public static final Response responseOk(MediaType type, Object entity, Locale locale) {
+    public static final Response responseOk(final MediaType type, final Object entity, final Locale locale) {
 	return response(Status.OK, locale, type, entity);
     }
 
     //
 
-    public static final Response response(Status status, Object entity) {
+    public static final Response response(final Status status, final Object entity) {
 	return response(status, Locale.getDefault(), entity);
     }
 
-    public static final Response response(Status status, MediaType type, Object entity) {
+    public static final Response response(final Status status, final MediaType type, final Object entity) {
 	return response(status, Locale.getDefault(), type, entity);
     }
 
-    public static final Response response(Status status, Locale locale, Object entity) {
+    public static final Response response(final Status status, final Locale locale, final Object entity) {
 	return Response
 		.status(status) //
 		.cacheControl(RESTUtils.CACHE_CONTROL_NO_CACHE) //
@@ -103,7 +104,8 @@ public final class RESTUtils {
 		.build();
     }
 
-    public static final Response response(Status status, Locale locale, MediaType type, Object entity) {
+    public static final Response response(final Status status, final Locale locale, final MediaType type,
+	    final Object entity) {
 	return Response
 		.status(status) //
 		.cacheControl(RESTUtils.CACHE_CONTROL_NO_CACHE) //
